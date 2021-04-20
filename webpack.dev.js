@@ -5,6 +5,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: './src/client/index.js',
+    output: {
+        library: "_",
+        libraryTarget: "var"
+    },
+    devServer: {
+        port: "8000",
+        proxy: { "/": "http://localhost:8080/" }
+    },
     mode: 'development',
     devtool: 'source-map',
     module: {

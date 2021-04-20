@@ -9,6 +9,10 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 module.exports = {
     entry: './src/client/index.js',
     mode: 'production',
+    output: {
+        library: "_",
+        libraryTarget: "var"
+    },
     optimization: {
         minimize: true,
         minimizer: [new TerserPlugin(), new OptimizeCssAssetsPlugin()]
