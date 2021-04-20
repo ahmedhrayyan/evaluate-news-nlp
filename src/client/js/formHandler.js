@@ -1,5 +1,4 @@
 import { analyze } from "./api"
-import { checkForName } from "./nameChecker"
 const results = document.getElementById("results");
 const scores = {
     'P+': 'Strong positive',
@@ -14,7 +13,6 @@ function handleSubmit(event) {
     event.preventDefault()
     // check what text was put into the form field
     let formText = document.getElementById('sentence').value
-    checkForName(formText)
 
     analyze(formText) 
     .then(({ data }) => {
