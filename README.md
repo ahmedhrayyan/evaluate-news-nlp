@@ -2,6 +2,7 @@
 you can see live version of the application [here]('https://ah-evaluate-news-nlp.herokuapp.com/').
 
 ---
+_Udacity Instructions_
 
 # Project Instructions
 
