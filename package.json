@@ -40,5 +40,8 @@
   "browserslist": [
     "defaults",
     "not IE 11"
-  ]
+  ],
+  "engines": {
+    "node": "14.x"
+  }
 }
