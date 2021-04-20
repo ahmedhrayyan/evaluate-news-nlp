@@ -19,13 +19,13 @@
         <main>
             <section>
                 <form class="" onsubmit="return _.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return _.handleSubmit(event)" onsubmit="return _.handleSubmit(event)">
+                    <textarea id="sentence" name="input" value="" placeholder="Sentence to be analyzed" rows="3"></textarea>
+                    <input type="submit" name="" value="Analyze" onclick="return _.handleSubmit(event)" onsubmit="return _.handleSubmit(event)">
                 </form>
             </section>
 
             <section>
-                <strong>Form Results:</strong>
+                <h1>Results:</h1>
                 <div id="results"></div>
             </section>
         </main>

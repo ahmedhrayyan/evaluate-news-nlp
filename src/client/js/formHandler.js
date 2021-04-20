@@ -1,15 +1,40 @@
+import { analyze } from "./api"
+import { checkForName } from "./nameChecker"
+const results = document.getElementById("results");
+const scores = {
+    'P+': 'Strong positive',
+    'P': 'Positive',
+    'NEU': 'Neutral',
+    'N': 'Negative',
+    'N+': 'Strong negative',
+    'NONE': 'Without polarity',
+}
+
 function handleSubmit(event) {
     event.preventDefault()
-
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    _.checkForName(formText)
+    let formText = document.getElementById('sentence').value
+    checkForName(formText)
 
-    console.log("::: Form Submitted :::")
-    fetch('/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
+    analyze(formText) 
+    .then(({ data }) => {
+        results.innerHTML = `
+            <dl>
+                <dt>Score tag:</dt>
+                <dd>${data.score_tag} (${scores[data.score_tag]})</dd>
+                <dt>Agreement:</dt>
+                <dd>${data.agreement}</dd>
+                <dt>Subjectivity:</dt>
+                <dd>${data.subjectivity}</dd>
+                <dt>Confidence:</dt>
+                <dd>${data.confidence}</dd>
+                <dt>Irony:</dt>
+                <dd>${data.irony}</dd>
+            </dl> 
+        `        
+    })
+    .catch(e => {
+        alert("Something went wrong")
     })
 }
 
